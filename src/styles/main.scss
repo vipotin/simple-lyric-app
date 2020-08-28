@@ -1,0 +1,56 @@
+@import 'palette.scss';
+
+@mixin flexCenter($direction) {
+  height: 100vh;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+$mic-image: '../images/mic.jpg';
+
+html, body, .container {
+  background-color: black;
+  color: $primary-color-text;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  background-color: black;
+  background-image: url($mic-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  @include flexCenter(column);
+}
+
+  h2 {
+    color: $primary-color;
+    padding-top: 30px;
+    font-family: Rockwell;
+    font-style: normal;
+    font-weight: 500;
+  }
+  p {
+    white-space: "pre-wrap"
+  }
+
+  #search-bar {
+    border-radius: 30px;
+    border: 2px solid $primary-color;
+    padding: 20px;
+    width: 50vw;
+    height: 1rem;
+    font-size: 1rem;
+    background-color:rgba(0, 0, 0, 0.5);
+    color: $primary-color-text;
+    margin: 10%
+
+  }
+    :focus {
+      outline-color: transparent;
+      outline-style: none;
+    }

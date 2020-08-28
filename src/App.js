@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './styles/main.css';
+import LyricAPI from './lyricAPI'
+
 
 function App() {
+  const [lyrics, setLyrics] = useState("")
+
+  const searchLyrics = async () => {
+    const lyricData = await LyricAPI.getReplay()
+    console.log(lyricData)
+    let lyricsWithLineBreaks = lyricData.lyrics.split('\n').map ((item, i) => <span key={i}>{item}<br/></span>);
+    setLyrics(lyricsWithLineBreaks)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+        <h2>Search by artist and song</h2>
+        <div class="search">
+          <input type="text" id="search-bar"/>
+          <button onClick={searchLyrics}/>
+        </div>
+        <div>
+          {lyrics}
+        </div>
     </div>
   );
 }
