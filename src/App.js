@@ -5,6 +5,7 @@ import LyricAPI from './lyricAPI'
 
 function App() {
   const [lyrics, setLyrics] = useState("")
+  const searchPlaceHolder = "Type the artist and the song you are looking for"
 
   const searchLyrics = async () => {
     const lyricData = await LyricAPI.getReplay()
@@ -15,14 +16,12 @@ function App() {
 
   return (
     <div className="container">
-        <h2>Search by artist and song</h2>
-        <div class="search">
-          <input type="text" id="search-bar"/>
-          <button onClick={searchLyrics}/>
-        </div>
-        <div>
-          {lyrics}
-        </div>
+      <h2>Your favorite lyrics</h2>
+      <div className="search">
+        <input type="text" id="search-bar" placeholder={searchPlaceHolder}/>
+        <button onClick={searchLyrics}>Search</button>
+      </div>
+      <div className="lyrics">{lyrics}</div>
     </div>
   );
 }
