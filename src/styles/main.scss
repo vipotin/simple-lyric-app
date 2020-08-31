@@ -12,41 +12,40 @@ html, body {
   background-color: black;
   color: $primary-color-text;
   background-image: url($mic-image);
+  background-position:fixed; 
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   margin: 0;
 }
 
+header {
+  //background-color: green;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
 .container {
   height: auto;
   @include flexCenter(column);
-  margin-bottom: 10vh;
-  width: 95vw;
+  width: 100vw;
+  font-family: Rockwell;
 }
-  div {
-    margin-bottom: 5vh;
-  }
 
   h2 {
     color: $primary-color;
-    font-family: Rockwell;
-    font-style: normal;
     font-weight: 500;
   }
-
   .search {
-    align-items: center;
-    //background-color: pink;
+    margin-bottom: 5vh;
   }
     button {
-      height: 2.3rem;
+      height: 2.5rem;
       width: 6rem;
       border-radius: 30px;
       border: 2px solid $accent-color;
       background-color: transparent;
       color: $primary-color-text;
-      vertical-align: middle;
       font-size: 16px;
       transition: 0.3s;
 
@@ -79,6 +78,13 @@ html, body {
       outline-color: transparent;
       outline-style: none;
     }
-  // .lyrics {
-  //   background-color: teal;
-  // }
+
+  // h3 {
+  //   background-color: yellow;
+  // } 
+    
+  .lyrics {
+    text-align: left;
+    // background-color: teal;
+    margin-bottom: 5vh;
+  }

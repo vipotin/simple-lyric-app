@@ -10,11 +10,9 @@ const getReplay = async () => {
 }
 
 const find = async (name, title) => {
-  await axios
-  .get(`${baseUrl}/${name}/${title}`)
-  .then(res => {
-    return res.data
-  })
+  const req = await axios.get(`${baseUrl}/${name}/${title}`)
+  console.log(req.data)
+  return req.data
 }
 
 export default {getReplay, find}
