@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './styles/main.css';
 import LyricAPI from './lyricAPI'
+import githubLogo from './images/GitHub-Mark-Light-32px.png'
 
 
 function App() {
@@ -17,7 +18,19 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h2>Your favorite lyrics</h2>
+        <div className="nav">
+          <div>
+            <a className="nav__item" href="https://github.com/vipotin" target="_blank" rel="noopener noreferrer">
+              <img src={githubLogo} alt="Github"/>
+            </a>
+          </div>
+          <h2 className="nav__item">Your favorite lyrics</h2>
+          <div className="nav__item burger-menu">
+            <div className="bar1" key="b1" />
+            <div className="bar2" key="b2" />
+            <div className="bar3" key="b3" />
+          </div>
+        </div>
       </header>
       <div className="search">
         <input type="text" id="search-bar" placeholder={searchPlaceHolder}/>
@@ -26,6 +39,9 @@ function App() {
       <div className="lyrics">
         <h3 id="title">Replay - Lady Gaga</h3>
         <p>{lyrics}</p>
+      </div>
+      <div className="footer">
+      <small>&copy; Copyright 2020</small>
       </div>
     </div>
   );
