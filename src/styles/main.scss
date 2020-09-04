@@ -1,20 +1,14 @@
-@import 'palette.scss';
-
+@import 'helpers/palette';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/search';
+@import 'helpers/images';
+        
 @mixin flexCenter($direction) {
   display: flex;
   align-items: center;
   flex-direction: $direction;
 }
-
-@mixin flexSpaceBetween($direction) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: $direction;
-}
-
-
-$mic-image: '../images/mic.jpg';
 
 html, body {
   background-color: black;
@@ -27,94 +21,9 @@ html, body {
   margin: 0;
 }
 
-header {
-  width: 100%;
-  height: 4rem;
-  margin-bottom: 5vh;
-
-  .nav {
-    @include flexSpaceBetween(row);
-    padding: 0 1rem 0 1rem;
-  }
-}
-
-.burger-menu {
-  display: inline-block;
-  padding: 10px;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.bar1,
-.bar2,
-.bar3 {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 4px 0;
-  transition: 0.4s;
-}
-
-
-.footer {
-  padding: 1rem;
-  // background-color: rgb(235, 195, 64);
-  position: fixed;
-  text-align: left;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
 .container {
   height: auto;
   @include flexCenter(column);
   width: 100vw;
   font-family: Rockwell;
 }
-
-  h2 {
-    color: $primary-color;
-    font-weight: 500;
-  }
-  .search {
-    margin-bottom: 5vh;
-  }
-    button {
-      height: 2.5rem;
-      width: 6rem;
-      border-radius: 30px;
-      border: 2px solid $accent-color;
-      background-color: transparent;
-      color: $primary-color-text;
-      font-size: 16px;
-      transition: 0.3s;
-
-      &:hover,
-      &:focus {
-        border-color: $primary-color-text;
-        color: $accent-color;
-        cursor: pointer;
-      }
-    }
-
-  #search-bar {
-    border-radius: 30px;
-    border: 2px solid $primary-color;
-    padding: 10px;
-    width: 50vw;
-    height: 1rem;
-    font-size: 1rem;
-    background-color:rgba(0, 0, 0, 0.5);
-    color: $primary-color-text;
-    margin-right: 1rem;
-  }
-    :focus {
-      outline-color: transparent;
-      outline-style: none;
-    }
-    
-  .lyrics {
-    text-align: left;
-    margin-bottom: 5vh;
-  }

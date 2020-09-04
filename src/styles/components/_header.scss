@@ -1,0 +1,36 @@
+@mixin flexSpaceBetween($direction) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+h2 {
+  color: $primary-color;
+  font-weight: 500;
+}
+
+.nav {
+  @include flexSpaceBetween(row);
+  padding: 0 1rem 0 1rem;
+  width: 100%;
+  height: 4rem;
+  margin-bottom: 5vh;
+}
+
+.burger-menu {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+}
