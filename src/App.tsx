@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="container">
       <Header/>
-      <Search setLyrics={setLyrics}/>
-      <Lyrics lyrics={lyrics}/>
+      <Search setLyrics={setLyrics} placeHolder="Type the artist and the song you are looking for"/>
+      <Lyrics lyrics={lyrics} title="" artist="" />
       <Footer/>
     </div>
   );

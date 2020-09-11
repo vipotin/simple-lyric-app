@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import githubLogo from '../images/GitHub-Mark-Light-32px.png'
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
       <div className="nav">
         <div>

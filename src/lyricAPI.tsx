@@ -9,7 +9,7 @@ const getReplay = async () => {
   return req.data
 }
 
-const find = async (name, title) => {
+const find = async (name: string, title: string) => {
   const req = await axios.get(`${baseUrl}/${name}/${title}`)
   console.log(req.data)
   return req.data
