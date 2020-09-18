@@ -1,9 +1,4 @@
-@mixin flexSpaceBetween($direction) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: $direction;
-}
+@import '../helpers/mixins';
 
 h2 {
   color: $primary-color;

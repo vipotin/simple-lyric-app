@@ -12,8 +12,10 @@ interface LyricProps  {
 const Lyrics: React.FC<LyricProps> = ({title, artist,imagePath,lyrics}) => {
   return (
       <div className="lyrics">
-      <h3 id="title">{title}</h3>
-      {imagePath ? <img src={imagePath} alt="cover image"/> : null}
+        <div className="lyricsInfo">
+          <h3 id="title">{title}</h3>
+          {imagePath ? <img src={imagePath} alt="cover image"/> : null}
+        </div>
       <p>{lyrics}</p>
     </div>
   )

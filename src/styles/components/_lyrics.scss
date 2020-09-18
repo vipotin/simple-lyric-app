@@ -1,4 +1,24 @@
+@import '../helpers/mixins';
+
 .lyrics {
   text-align: left;
   margin-bottom: 5vh;
 }
+
+  .lyricsInfo {
+    @include flexSpaceBetween(row);
+    margin-bottom: 2rem;
+    //background-color: pink;
+
+      img {
+        max-height: 6rem;
+        max-width: 6rem;
+        margin-left: 1rem;
+        transition: all .6s ease-in-out;
+
+        &:hover,
+        &:focus {
+          transform: scale(2.5) translate(2rem, 2rem);
+      }
+      }
+  }
