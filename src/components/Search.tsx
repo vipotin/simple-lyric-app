@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import lyricAPI from '../lyricAPI'
 import LyricAPI from '../lyricAPI'
-import { formatSearchString, getSongData } from '../lyricHelper'
+import { getSongData } from '../lyricHelper'
 
 
 
@@ -17,22 +17,31 @@ const Search: React.FC<SearchProps> = ({placeHolder, setLyrics, setImagePath, se
   const [searchInput, setSearchInput] = useState("")
 
   const searchLyrics = async () => {
-    const searchString = formatSearchString(searchInput)
+    // const searchString = formatSearchString(searchInput)
     
-    const songList = await LyricAPI.getSongs(searchString)
-    const songData = getSongData(songList[0])
-    const lyricData = await lyricAPI.getLyrics(songData.artist, songData.title)
-    console.log(lyricData)
-    const lyricsWithLineBreaks: string = lyricData.split('\n').map((item: string, i: number) => <span key={i}>{item}<br/></span>)
+    // const songList = await LyricAPI.getSongs(searchString)
+    // const songData = getSongData(songList[0])
+    // const lyricData = await lyricAPI.getLyrics(songData.artist, songData.title)
+    // console.log(lyricData)
+    // const lyricsWithLineBreaks: string = lyricData.split('\n').map((item: string, i: number) => <span key={i}>{item}<br/></span>)
+
+    const songData = await getSongData(searchInput)
     
-    setLyrics(lyricsWithLineBreaks)
+    setLyrics(songData.lyrics)
     setTitle(songData.fullTitle)
     setImagePath(songData.imagePath)
   }
 
   return (
   <div className="search">
-    <input type="text" id="search-bar" placeholder={placeHolder} value={searchInput} onChange={e => setSearchInput(e.target.value)}/>
+    <input 
+      type="text" id="search-bar" 
+      placeholder={placeHolder} 
+      value={searchInput} 
+      onChange={e => setSearchInput(e.target.value)}
+      onKeyPress={e => {
+        if (e.key === "Enter") { searchLyrics() }
+      }}/>
     <button onClick={searchLyrics}>Search</button>
   </div>
   )
