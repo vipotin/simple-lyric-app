@@ -6,16 +6,9 @@ const baseUrl = 'https://api.lyrics.ovh/v1'
 
 const getSongs = async (search: string) => {
   const res = await axios.get(`https://api.genius.com/search?q=${search}&access_token=${config.ACCESS_TOKEN}`)
+  console.log(res)
   const songList = res.data.response.hits
-  console.log(songList)
   return songList
-}
-
-const getExample = async () => {
-  fetch(`https://api.genius.com/artists/16775?access_token=${config.ACCESS_TOKEN}`)
-    .then(response => response.json())
-    .then(response => console.log(response.data))
-  //return req.data
 }
 
 const getLyrics = async (artist: string, title: string) => {
@@ -23,13 +16,6 @@ const getLyrics = async (artist: string, title: string) => {
   return res.data.lyrics
   // const artistInput = artist.replaceAll(" ", "%20")
 }
-
-
-// const getLyricHtml = async (url: string) => {
-//   const res = await fetch(url, { mode: 'no-cors'})
-//   console.log(res)
-//   return res
-// }
 
 const getLyricHtml = async (url: string) => {
   const res = await axios.get(url)
@@ -44,4 +30,9 @@ const find = async (name: string, title: string) => {
   return req.data
 }
 
-export default {getSongs, find, getExample, getLyrics}
+const testFunction = () => {
+  const sum = 1 + 2 + 3
+  return sum
+}
+
+export default {getSongs, find, getLyrics, testFunction}
