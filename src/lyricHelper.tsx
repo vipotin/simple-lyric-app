@@ -1,27 +1,13 @@
-// https://stackoverflow.com/questions/62217642/react-and-typescript-which-types-for-axios-response
-
 import lyricAPI from './lyricAPI'
 import React from 'react'
 import { SongData } from './types'
 
-interface SongList {
-  hits: Array<Song>
-}
-
-interface Song {
-  result: SongData
-}
-
 const getSongList = async (input: string) => {
-  console.log("search")
   var songList = []
   if (input.length > 0) {
     const searchString = formatSearchString(input)
     songList = await lyricAPI.getSongs(searchString)
   }
-  console.log(songList)
-  //return songList[0]
-  console.log("hits", songList)
   return songList
 }
 
@@ -53,9 +39,8 @@ const getSongData = async (data: any) =>  {
   const artist: string = data.result.primary_artist.name
   const title: string = data.result.title
   const id: number = data.result.id
+  const lyrics = ""
 
-  const lyrics = await getLyrics(artist, title)
-  //const lyrics: string = lyrics
   const songData: SongData = {
     fullTitle,
     imagePath,
@@ -71,4 +56,4 @@ const formatSearchString = (input: string) => {
   return input.replaceAll(" ", "%20")
 }
 
-export { getSongList, getSongData, getDataOfTopHits }
+export { getLyrics, getDataOfTopHits }

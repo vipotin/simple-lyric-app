@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SongData } from '../types'
-
-const exampleList = ["Poker Face by Lady Gaga", "Bad Romance by Lady Gaga"]
+import { getLyrics } from '../lyricHelper'
 
 interface ResultProps {
   list: SongData[];
@@ -14,19 +13,24 @@ interface ResultProps {
 
 const Lyrics: React.FC<ResultProps> = ({list, showResults, setLyrics, setImagePath, setTitle, setShowResults}) => {
   
-  const [songList, setSongList] = useState<SongData[]>(list)
-
   const searchLyrics = async (song: SongData) => {
-    console.log("search")
-    setLyrics(song.lyrics)
-    setTitle(song.fullTitle)
-    setImagePath(song.imagePath)
+    const lyrics = await getLyrics(song.artist, song.title)
+    setLyrics(lyrics)
+    if (lyrics.length > 1) {
+      setTitle(song.fullTitle)
+      setImagePath(song.imagePath)
+      
+    } else {
+      setLyrics("")
+      setTitle("Oops. No lyrics were found.")
+      setImagePath("")
+    }
     setShowResults(false)
-    // setImagePath(songData[0].result.header_image_url)
   }
   
   return (
     <ul className="search-results">
+      {showResults && list.length == 0 ? "No results" : null}
       {showResults ? list.map(item => {
         return(
         <li key={item.id}>
