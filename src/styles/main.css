@@ -47,14 +47,10 @@ h2 {
 .footer {
   padding: 1rem;
   position: fixed;
-  text-align: left;
+  text-align: right;
   bottom: 0;
-  left: 0;
+  right: 0;
   width: 100%;
-}
-
-.search {
-  margin-bottom: 5vh;
 }
 
 button {
@@ -95,6 +91,7 @@ button:hover, button:focus {
 .lyrics {
   text-align: left;
   margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
 .lyricsInfo {
@@ -125,6 +122,87 @@ button:hover, button:focus {
 .lyricsInfo img:hover, .lyricsInfo img:focus {
   -webkit-transform: scale(2.5) translate(2rem, 2rem);
           transform: scale(2.5) translate(2rem, 2rem);
+}
+
+.btn {
+  height: 2.5rem;
+  width: 6rem;
+  border-radius: 30px;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 16px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+button:hover, button:focus {
+  border-color: #FFFFFF;
+  color: #00BCD4;
+  cursor: pointer;
+}
+
+.search-results {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  top: 50;
+  position: absolute;
+}
+
+.btn-result {
+  width: 53vw;
+  margin-bottom: 5px;
+  background-color: #212121;
+}
+
+li {
+  -webkit-animation: fadeIn 0.5s linear;
+          animation: fadeIn 0.5s linear;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+li:nth-child(1) {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+
+li:nth-child(2) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+li:nth-child(3) {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 html, body {

@@ -13,13 +13,22 @@ function App() {
   const [title, setTitle] = useState("")
   const [imagePath, setImagePath] = useState("")
   const [list, setList] = useState<SongData[]>([])
+  const [showResults, setShowResults] = useState(false)
 
   return (
     <div className="container">
       <Header/>
-      <Search setList={setList} placeHolder="Type the artist and the song you are looking for"/>
-      <ResultList list={list} setLyrics={setLyrics} setTitle={setTitle} setImagePath={setImagePath}/>
-      <Lyrics lyrics={lyrics} title={title} artist="" imagePath={imagePath}/>
+      <div className="content">
+        <Search 
+        setList={setList}
+        setShowResults={setShowResults}
+        placeHolder="Type the artist and the song you are looking for"/>
+        <ResultList list={list} setLyrics={setLyrics} 
+        setTitle={setTitle} setImagePath={setImagePath} 
+        setShowResults={setShowResults}
+        showResults={showResults}/>
+        <Lyrics lyrics={lyrics} title={title} artist="" imagePath={imagePath}/>
+      </div>
       <Footer/>
     </div>
   );

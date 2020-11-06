@@ -1,0 +1,60 @@
+$total-items: 3;
+
+.btn {
+  height: 2.5rem;
+  width: 6rem;
+  border-radius: 30px;
+  
+  background-color: transparent;
+  color: $primary-color-text;
+  font-size: 16px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+button:hover, button:focus {
+  border-color: $primary-color-text;
+  color: $accent-color;
+  cursor: pointer;
+}
+
+.search-results {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  top: 50;
+  position: absolute;
+}
+
+.btn-result {
+  width: 53vw;
+  margin-bottom: 5px;
+  background-color: $primary-text-color;
+}
+
+li {
+  animation: fadeIn 0.5s linear;
+  animation-fill-mode: both;
+}
+
+// Set delay per List Item
+@for $i from 1 through $total-items {
+  li:nth-child(#{$i}) {
+    animation-delay: .25s * $i;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

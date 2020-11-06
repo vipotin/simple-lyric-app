@@ -8,9 +8,11 @@ interface ResultProps {
   setLyrics: React.Dispatch<React.SetStateAction<string>>;
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   setImagePath: React.Dispatch<React.SetStateAction<string>>;
+  setShowResults: React.Dispatch<React.SetStateAction<boolean>>;
+  showResults: boolean;
 }
 
-const Lyrics: React.FC<ResultProps> = ({list, setLyrics, setImagePath, setTitle}) => {
+const Lyrics: React.FC<ResultProps> = ({list, showResults, setLyrics, setImagePath, setTitle, setShowResults}) => {
   
   const [songList, setSongList] = useState<SongData[]>(list)
 
@@ -19,21 +21,21 @@ const Lyrics: React.FC<ResultProps> = ({list, setLyrics, setImagePath, setTitle}
     setLyrics(song.lyrics)
     setTitle(song.fullTitle)
     setImagePath(song.imagePath)
-    setSongList([])
+    setShowResults(false)
     // setImagePath(songData[0].result.header_image_url)
   }
   
   return (
-    <ul>
-      {list.map(item => {
+    <ul className="search-results">
+      {showResults ? list.map(item => {
         return(
         <li key={item.id}>
-          <button key={item.id} onClick={() => searchLyrics(item)}>
+          <button className="btn btn-result" key={item.id} onClick={() => searchLyrics(item)}>
             {item.fullTitle}
           </button>
         </li>
         )
-     })}
+     }): null}
     </ul>
 
   )
