@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import lyricAPI from '../lyricAPI'
-import LyricAPI from '../lyricAPI'
-import { getSongData, getSongList, getDataOfTopHits } from '../lyricHelper'
-import ResultList from './ResultList'
+import { getDataOfTopHits } from '../lyricHelper'
 import { SongData } from '../types'
 
 interface SearchProps {

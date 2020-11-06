@@ -123,8 +123,8 @@ button:hover, button:focus {
 }
 
 .lyricsInfo img:hover, .lyricsInfo img:focus {
-  -webkit-transform: scale(2.5) translate(2rem, 2rem);
-          transform: scale(2.5) translate(2rem, 2rem);
+  -webkit-transform: scale(2.5) translate(-2rem, 2rem);
+          transform: scale(2.5) translate(-2rem, 2rem);
 }
 
 .btn {
