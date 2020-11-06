@@ -30,7 +30,6 @@ const Search: React.FC<SearchProps> = ({placeHolder, setList, setShowResults}) =
       onKeyPress={e => {
         if (e.key === "Enter") { searchLyrics() }
       }}/>
-
     <button className="btn" onClick={searchLyrics}>Search</button>
   </div>
   )

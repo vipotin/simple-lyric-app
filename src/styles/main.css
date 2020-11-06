@@ -47,10 +47,13 @@ h2 {
 .footer {
   padding: 1rem;
   position: fixed;
-  text-align: right;
   bottom: 0;
-  right: 0;
-  width: 100%;
+  right: 3rem;
+  margin: 0;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 button {

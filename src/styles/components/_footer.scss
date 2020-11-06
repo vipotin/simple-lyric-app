@@ -1,8 +1,9 @@
 .footer {
   padding: 1rem;
   position: fixed;
-  text-align: right;
   bottom: 0;
-  right: 0;
-  width: 100%;
+  right: 3rem;
+  margin: 0;
+  transform-origin: bottom right;
+  transform: rotate(90deg);
 }

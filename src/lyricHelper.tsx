@@ -12,21 +12,14 @@ interface Song {
   result: SongData
 }
 
-// interface SongData {
-//   fullTitle: string
-//   imagePath: string
-//   artist: string
-//   title: string
-//   lyrics: string
-//   id: number
-// }
-
 const getSongList = async (input: string) => {
   console.log("search")
-  const searchString = formatSearchString(input)
-  const songList = await lyricAPI.getSongs(searchString)
+  var songList = []
+  if (input.length > 0) {
+    const searchString = formatSearchString(input)
+    songList = await lyricAPI.getSongs(searchString)
+  }
   console.log(songList)
-  
   //return songList[0]
   console.log("hits", songList)
   return songList
@@ -41,13 +34,15 @@ const getLyrics = async (artist:string, title:string) => {
 const getDataOfTopHits = async (input: string) => {
   const songList = await getSongList(input)
   const dataList: SongData[] = []
-  //const len = songList.length
-  const len = 3
-  for (let i = 0; i < len; i++) {
-    const song: SongData = await getSongData(songList[i])
-    dataList.push(song)
+  
+  if (songList.length > 0) {
+    const len = 3
+    for (let i = 0; i < len; i++) {
+      const song: SongData = await getSongData(songList[i])
+      dataList.push(song)
+    }
   }
-  console.log(dataList)
+
   return dataList
 }
 
