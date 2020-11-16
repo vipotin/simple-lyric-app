@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SongData } from '../types'
-import { getLyrics } from '../lyricHelper'
+import { getLyricData } from '../serviceHelper'
 
 interface ResultProps {
   list: SongData[];
@@ -14,7 +14,7 @@ interface ResultProps {
 const Lyrics: React.FC<ResultProps> = ({list, showResults, setLyrics, setImagePath, setTitle, setShowResults}) => {
   
   const searchLyrics = async (song: SongData) => {
-    const lyrics = await getLyrics(song.artist, song.title)
+    const lyrics = await getLyricData(song.artist, song.title)
     setLyrics(lyrics)
     if (lyrics.length > 1) {
       setTitle(song.fullTitle)

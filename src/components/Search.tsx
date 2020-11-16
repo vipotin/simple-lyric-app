@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getDataOfTopHits } from '../lyricHelper'
+import { getDataOfTopHits } from '../serviceHelper'
 import { SongData } from '../types'
 
 interface SearchProps {

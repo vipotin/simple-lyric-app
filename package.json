@@ -7,12 +7,13 @@
     "axios": "^0.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
+    "test:watch": "jest --watch",
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'"
   },
@@ -33,16 +34,38 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-env": "^7.12.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@types/axios": "^0.14.0",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.15",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "@types/testing-library__jest-dom": "^5.9.5",
+    "@types/testing-library__react": "^10.2.0",
     "cheerio": "^1.0.0-rc.3",
+    "msw": "^0.21.3",
     "node-sass": "^4.14.1",
-    "ts-jest": "^26.4.1",
+    "ts-jest": "^26.4.4",
     "typescript": "^4.0.3"
+  },
+  "type": "module",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.+(ts|tsx|js|jsx)",
+      "**/?(*.)+(spec|test).+(ts|tsx|js)"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx|js)$": "ts-jest"
+    },
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect",
+      "./src/test/server.js"
+    ]
   }
 }

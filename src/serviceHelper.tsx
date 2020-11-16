@@ -1,19 +1,22 @@
-import lyricAPI from './lyricAPI'
+import { getSongs, getLyrics }from './songDataService'
 import React from 'react'
 import { SongData } from './types'
 
+const searchRegExp = /\s/g;
+const replaceWith = '%20';
+
 const getSongList = async (input: string) => {
-  var songList = []
+  let songList = []
   if (input.length > 0) {
     const searchString = formatSearchString(input)
-    songList = await lyricAPI.getSongs(searchString)
+    songList = await getSongs(searchString)
   }
   return songList
 }
 
-const getLyrics = async (artist:string, title:string) => {
-  const lyricData = await lyricAPI.getLyrics(artist, title)
-  const lyrics: string = lyricData.split('\n').map((item: string, i: number) => <span key={i}>{item}<br/></span>)
+const getLyricData = async (artist:string, title:string) => {
+  const lyricData = await getLyrics(artist, title)
+  const lyrics = lyricData.split('\n').map((item: string, i: number) => <span key={i}>{item}<br/></span>)
   return lyrics
 }
 
@@ -22,13 +25,13 @@ const getDataOfTopHits = async (input: string) => {
   const dataList: SongData[] = []
   
   if (songList.length > 0) {
-    const len = 3
+    const limit = 3
+    const len = (songList.length < limit) ? songList.length : limit
     for (let i = 0; i < len; i++) {
       const song: SongData = await getSongData(songList[i])
       dataList.push(song)
     }
   }
-
   return dataList
 }
 
@@ -53,7 +56,8 @@ const getSongData = async (data: any) =>  {
 }
 
 const formatSearchString = (input: string) => {
-  return input.replaceAll(" ", "%20")
+  const result = input.replace(searchRegExp, replaceWith);
+  return result
 }
 
-export { getLyrics, getDataOfTopHits }
+export { getLyricData, getSongList, getDataOfTopHits, formatSearchString, getSongData }
