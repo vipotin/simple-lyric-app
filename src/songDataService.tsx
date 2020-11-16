@@ -1,25 +1,19 @@
 import axios from 'axios'
 import config from './config'
+import { HitData } from './types'
 
 
-const baseUrl = 'https://api.lyrics.ovh/v1'
+const baseUrlLyricService = 'https://api.lyrics.ovh/v1'
+const baseUrlGenius = 'https://api.genius.com/search?'
 
-const getSongs = async (search: string) => {
-  const res = await axios.get(`https://api.genius.com/search?q=${search}&access_token=${config.ACCESS_TOKEN}`)
-  //console.log(res)
+const getSongs = async (search: string): Promise<HitData[]> => {
+  const res = await axios.get(`${baseUrlGenius}q=${search}&access_token=${config.ACCESS_TOKEN}`)
   return res.data.response.hits
 }
 
-const getLyrics = async (artist: string, title: string) => {
-  const res = await axios.get(`https://api.lyrics.ovh/v1/${artist}/${title}`)
-  //console.log(res)
+const getLyrics = async (artist: string, title: string): Promise<string>  => {
+  const res = await axios.get(`${baseUrlLyricService}/${artist}/${title}`)
   return res.data.lyrics
-  // const artistInput = artist.replaceAll(" ", "%20")
 }
 
-const testFunction = () => {
-  const sum = 1 + 2 + 3
-  return sum
-}
-
-export { getSongs, getLyrics, testFunction }
+export { getSongs, getLyrics }

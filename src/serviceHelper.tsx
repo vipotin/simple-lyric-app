@@ -1,27 +1,31 @@
 import { getSongs, getLyrics }from './songDataService'
 import React from 'react'
-import { SongData } from './types'
+import { SongData, HitData } from './types'
 
 const searchRegExp = /\s/g;
 const replaceWith = '%20';
 
-const getSongList = async (input: string) => {
-  let songList = []
-  if (input.length > 0) {
-    const searchString = formatSearchString(input)
-    songList = await getSongs(searchString)
-  }
-  return songList
-}
+// const getSongList = async (input: string) => {
+//   let songList = []
+//   if (input.length > 0) {
+//     const searchString = formatSearchString(input)
+//     songList = await getSongs(searchString)
+//   }
+//   return songList
+// }
 
-const getLyricData = async (artist:string, title:string) => {
-  const lyricData = await getLyrics(artist, title)
+const getLyricData = async (artist:string, title:string): Promise<JSX.Element[]>  => {
+  const lyricData: string = await getLyrics(artist, title)
   const lyrics = lyricData.split('\n').map((item: string, i: number) => <span key={i}>{item}<br/></span>)
   return lyrics
 }
 
-const getDataOfTopHits = async (input: string) => {
-  const songList = await getSongList(input)
+const getDataOfTopHits = async (input: string): Promise<SongData[]>  => {
+  let songList: HitData[] = []
+  if (input.length > 0) {
+    const searchString = formatSearchString(input)
+    songList = await getSongs(searchString)
+  }
   const dataList: SongData[] = []
   
   if (songList.length > 0) {
@@ -35,7 +39,7 @@ const getDataOfTopHits = async (input: string) => {
   return dataList
 }
 
-const getSongData = async (data: any) =>  {
+const getSongData = async (data: HitData): Promise<SongData> =>  {
   
   const fullTitle: string = data.result.full_title
   const imagePath: string = data.result.header_image_thumbnail_url
@@ -55,9 +59,9 @@ const getSongData = async (data: any) =>  {
   return songData
 }
 
-const formatSearchString = (input: string) => {
+const formatSearchString = (input: string): string => {
   const result = input.replace(searchRegExp, replaceWith);
   return result
 }
 
-export { getLyricData, getSongList, getDataOfTopHits, formatSearchString, getSongData }
+export { getLyricData, getDataOfTopHits, formatSearchString, getSongData }

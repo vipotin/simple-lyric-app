@@ -8,8 +8,8 @@ import Search from './components/Search'
 import ResultList from './components/ResultList'
 import Footer from './components/Footer'
 
-function App() {
-  const [lyrics, setLyrics] = useState("")
+function App(): JSX.Element {
+  const [lyrics, setLyrics] = useState([<></>])
   const [title, setTitle] = useState("")
   const [imagePath, setImagePath] = useState("")
   const [list, setList] = useState<SongData[]>([])

@@ -4,7 +4,7 @@ import { getLyricData } from '../serviceHelper'
 
 interface ResultProps {
   list: SongData[];
-  setLyrics: React.Dispatch<React.SetStateAction<string>>;
+  setLyrics: React.Dispatch<React.SetStateAction<JSX.Element[]>>;
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   setImagePath: React.Dispatch<React.SetStateAction<string>>;
   setShowResults: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,7 +21,7 @@ const Lyrics: React.FC<ResultProps> = ({list, showResults, setLyrics, setImagePa
       setImagePath(song.imagePath)
       
     } else {
-      setLyrics("")
+      setLyrics([<></>])
       setTitle("Oops. No lyrics were found.")
       setImagePath("")
     }
