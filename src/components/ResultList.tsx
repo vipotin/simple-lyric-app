@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { SongData } from '../types'
 import { getLyricData } from '../serviceHelper'
 

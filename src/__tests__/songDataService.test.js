@@ -1,4 +1,3 @@
-import { rest } from 'msw'
 import { getSongs, getLyrics } from '../songDataService'
 import config from '../config'
 import { server, rest } from '../test/server'

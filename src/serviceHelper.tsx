@@ -23,7 +23,7 @@ const getLyricData = async (artist:string, title:string): Promise<JSX.Element[]>
 const getDataOfTopHits = async (input: string): Promise<SongData[]>  => {
   let songList: HitData[] = []
   if (input.length > 0) {
-    const searchString = formatSearchString(input)
+    const searchString = input.replace(searchRegExp, replaceWith)
     songList = await getSongs(searchString)
   }
   const dataList: SongData[] = []
