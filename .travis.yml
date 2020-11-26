@@ -1,4 +1,9 @@
-script: npm run test
+language: node_js
+node_js:
+  - 13.9.0
+cache: npm
+script:
+  - npm test
 deploy:
   provider: heroku
   api_key:
