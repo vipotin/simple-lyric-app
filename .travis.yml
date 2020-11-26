@@ -1,0 +1,8 @@
+language: node_js
+deploy:
+  provider: heroku
+  api_key:
+    secure: "l/U8SIti1ue2EG/9+A4Eg80tHGzUEfRHYhl4vD7CJ/XUv+EQf0bMmHy1qTAggQ+h5Uz+KMHjgRj0BH/AQAVh0130r87z2s0iEPHOn6S5Y6BOTYDAHybkmXB/O1XKWYOKiPd6XcEzlm79w/mldSJncuS5lsm9cuKAThZr40JwkdQv3KZh9Zl4uFnU7/QnjqmdutuYEubQSlMSrP5C5PSXU3pfcCkt3Af951v3BZ+kPjO0EBNw8Haim5TgX+cUfA19eyOlxgDFE7rBa0fmYLRFb/zbuQ6uy0OAz2KsOb7Idj8hiSyPkoriUUfxW9nuhaKfX3zbEUA7YHNcm7cAScEGnZZnrHQTQfw0+xfcnzpJrgu75a7BzRLm0yNyOuYtEgJJf4i6KQ9a+zYlE28hDF9yi+W7h9VJSwP/TfHQGa+07FGEXBbIp6ijO9dRdHi3K+JtODFxyPusXy/ohv82vwHnz1u03T/pZNYQ+q3U/EJdeilvNvNg+J9aenkT8GXtJFu9yMPyiXApfkw+2cAHmTZD4UyGCSgDorzF+qJ2vm64puo5ScDIdES9XE5RqUbYOPusv4xwAKM7y8gvUJV+jabaRzn+J/sHK7iVOEplsK6mW45C1t/k/zo/aE+nt0JFK4U3uUP8v0IOhkAvkSai2WK8WeuoWlhvRguCsE4yVQoGGgQ="
+  app: simple-lyric-app
+  on:
+    repo: vipotin/simple-lyric-app
