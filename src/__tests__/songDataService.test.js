@@ -1,5 +1,4 @@
 import { getSongs, getLyrics } from '../songDataService'
-import config from '../config'
 import { server, rest } from '../test/server'
 
 describe('Song data service ', () => {
@@ -10,7 +9,7 @@ describe('Song data service ', () => {
   
   test("handles failure in song information search", async () => {
     server.use(
-      rest.get(`https://api.genius.com/search?q=test&access_token=${config.ACCESS_TOKEN}`, (_req, res, ctx) => {
+      rest.get(`https://api.genius.com/search?q=test&access_token=${process.env.REACT_APP_ACCESS_TOKEN}`, (_req, res, ctx) => {
         return res(ctx.status(404));
       })
     )

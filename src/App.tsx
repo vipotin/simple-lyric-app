@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './styles/main.css'
 import { SongData } from './types'
-
 import Header from './components/Header'
 import Lyrics from './components/Lyrics'
 import Search from './components/Search'

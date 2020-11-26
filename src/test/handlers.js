@@ -1,5 +1,4 @@
 import { rest } from 'msw'
-import config from '../config'
 
 // const search = 'lady%20gaga%20poker%20face'
 

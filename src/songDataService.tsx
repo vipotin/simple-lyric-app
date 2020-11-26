@@ -1,5 +1,4 @@
 import axios from 'axios'
-import config from './config'
 import { HitData } from './types'
 
 
@@ -7,7 +6,7 @@ const baseUrlLyricService = 'https://api.lyrics.ovh/v1'
 const baseUrlGenius = 'https://api.genius.com/search?'
 
 const getSongs = async (search: string): Promise<HitData[]> => {
-  const res = await axios.get(`${baseUrlGenius}q=${search}&access_token=${config.ACCESS_TOKEN}`)
+  const res = await axios.get(`${baseUrlGenius}q=${search}&access_token=${process.env.REACT_APP_ACCESS_TOKEN}`)
   return res.data.response.hits
 }
 
