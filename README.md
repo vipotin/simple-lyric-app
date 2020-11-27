@@ -4,4 +4,4 @@ Music means a world to me and I love to sing along with my favorite songs. I wan
 
 This project is currently under development. Deploying process is not finished yet, therefore this application is not online yet.
 
-<img src="https://github.com/vipotin/simple-lyric-app/images/lyric-app-demo.png" width="300">
+<img src="https://github.com/vipotin/simple-lyric-app/images/demo-img.png" width="300">
